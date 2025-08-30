@@ -1,6 +1,7 @@
+// eu n entendi oq esta aqui dentro , ainda
 import java.util.Scanner;
 
-public class Exemplo02 {
+public class Exemplo03 {
   public static Scanner input = new Scanner(System.in);
   public static void main(String[] args) {
     int min, max;
