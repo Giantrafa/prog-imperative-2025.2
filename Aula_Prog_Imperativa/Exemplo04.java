@@ -1,32 +1,26 @@
+//entendi 
+
 import java.util.Scanner;
 
 public class Exemplo04 {
-    public static final int QTD = 4;    
     public static Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+     
+        System.out.print("Digite o preço antigo: ");
+        int precoAntigo = input.nextInt();
     
-    int q []; // NÃO USE ESSA MERDA , SOBRE NEHUMA CIRCUNSTÂNCIA , VAI TIRA PONTO COM ISSO , USE SO O EXEMPLO DO V
+        System.out.print("Digite o preço novo: ");
+        int precoNovo = input.nextInt();
     
-    public static void main (String[] args){
+        double aumento = calcularAumentoPrecoPercentual(precoAntigo, precoNovo);
+        System.out.printf("O aumento foi de %.1f%%\n", aumento);
+    }
 
-        int[] numeros = new int[QTD];
-        int soma = 0;
-        double media;
 
-        for(int i = 0; i < numeros.length; i += 1){
-            System.out.printf("digite o %d° numero: ",i +1 );
-            numeros[i] = input.nextInt();
-            soma += numeros[i];
+    public static double calcularAumentoPrecoPercentual(double precoAntigo, double novoPreco){
+        if (precoAntigo == 0) {
+            return 0.0;
         }
-
-        media = (double) soma / QTD;
-        System.out.printf("A media destes %d números é %f\n" ,QTD ,media);
-
-        System.out.println("Impressão de numeros maiores que a média");
-
-        for(int i =0; i< numeros.length; i+=1){
-            if(numeros[i]>media){
-                System.out.printf("v[%d] = %d\n", i + 1, numeros[i]);
-            }            
-        }
-    }        
+        return 100.0 * (novoPreco - precoAntigo) / precoAntigo;
+    }
 }

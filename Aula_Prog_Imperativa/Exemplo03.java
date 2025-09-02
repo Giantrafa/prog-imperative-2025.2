@@ -1,4 +1,4 @@
-// eu n entendi oq esta aqui dentro , ainda
+//entendi , e limpei o codigo
 import java.util.Scanner;
 
 public class Exemplo03 {
@@ -20,23 +20,17 @@ public class Exemplo03 {
     while (max < min);
     impressao(min, max);
     System.out.println("==================================");
-    System.out.print("Digite o preço antigo: ");
-    int precoAntigo = input.nextInt();
-    
-    System.out.print("Digite o preço novo: ");
-    int precoNovo = input.nextInt();
-    
-    double aumento = calcularAumentoPrecoPercentual(precoAntigo, precoNovo);
-    System.out.printf("O aumento foi de %f%%\n", aumento);
   }
 
   public static void impressao(int min, int max) {
+    // compara novamente se min e menor que max e caso nao for altera eles
     if (min > max) {
       int aux = min;
       min = max;
       max = aux;
     }
-    
+
+    //como elesta dentro de |impressao| ele roda junto, e depois vem o ========
     System.out.printf("TODOS OS NÚMEROS ENTRE %d E %d\n", min, max);
     for (int i = min; i <= max; i += 1) {
       System.out.print(i);
@@ -44,24 +38,7 @@ public class Exemplo03 {
         System.out.print(", ");
       }
     }
+    // garante que ========, fique na linha de baixo
     System.out.println();
-  }
-
-  // public static double calcularAumentoPrecoPercentual(
-  //     double precoAntigo, double novoPreco
-  // ) {
-  //   if (precoAntigo == 0) {
-  //     return 0.0;
-  //   }
-  //   return 100.0 * (novoPreco - precoAntigo) / precoAntigo;
-  // }
-
-    public static double calcularAumentoPrecoPercentual(
-      int precoAntigo, int novoPreco
-    ) {
-      if (precoAntigo == 0) {
-        return 0;
-      }
-      return 100.0 * (novoPreco - precoAntigo) / precoAntigo;
   }
 }
