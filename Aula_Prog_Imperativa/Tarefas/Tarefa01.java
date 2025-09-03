@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class TarefaMarcio {
+public class Tarefa01 {
     public static Scanner input = new Scanner(System.in);        
     public static void main (String[]args){
         
