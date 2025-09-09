@@ -14,6 +14,7 @@ public class Exemplo06 {
             System.out.println("Digite os numeros do 1° vetor");
             preencherDigitacao(A);
             
+            System.out.println();
             System.out.println("Digite os numeros do 2° vetor");
             preencherDigitacao(B);
             
@@ -21,10 +22,12 @@ public class Exemplo06 {
             
             System.out.println("Numeros do 1° vetor");
             impressao(A);
+
             System.out.println();
-            System.out.println("Numeros do 1° vetor");
+            System.out.println("Numeros do 2° vetor");
             impressao(B);
             
+            System.out.println();
             System.out.println("Soma dos 2 vetores");
             impressao(C);
         }
