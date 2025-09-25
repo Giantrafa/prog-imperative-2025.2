@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class exemplosEmGeral {
-public static Scanner input = new Scanner(System.in);
+ public static Scanner input = new Scanner(System.in);
     public static final int QTD = 30;
 
     public static void main(String[]args){
@@ -59,7 +59,7 @@ public static Scanner input = new Scanner(System.in);
     }    
 
     //Filtra os numeros do vetor e adiciona eles a V para mosra os pares de um vetor e impares do outro
-    public static void impares(int[]N, int[]M, int[]V,int tam){
+    public static void impares(int[]N, int[]M, int[]V, int tam){
         int index = 0;
 
         for(int i=0; i<tam; i++){
@@ -79,11 +79,11 @@ public static Scanner input = new Scanner(System.in);
         } 
 
         //  Pego um valor e procuro dentro do vetor usando o meio q vai sempre dividir o array para achar ele ou nao 
-        public static int buscaBinaria(int[]V, int x){
+        public static int buscaBinaria(int[]V, int x, int tam){
             int busca = x;
 
             int inicio = 0;
-            int fim = V.length -1;
+            int fim = tam -1;
             
             while( inicio <= fim){
                 int meio = (inicio + fim)/2;
@@ -131,23 +131,42 @@ public static Scanner input = new Scanner(System.in);
             System.out.println(V[V.length-1]+" | "+QTD);
         }
 
-        // conferir
-        public static int remover (int[]V,int tam, int x){
-        int pos = buscaBinaria(V,x);
-        if( pos == -1){
-            System.out.println("nao encontrado o vetor");
-            return tam;
+        // usa buscaBinaria no vetor para retirar o numero, e preenche com o ultimo numero do vetor
+        // so funciona caso o vetor esteja ordenado por conta do buscaBinaria
+        public static int removerTodos(int[] V, int tam, int x) {
+        int novoTam = tam;
+        int pos = buscaBinaria(V, x, novoTam);
+
+        while (pos != -1) {
+            for (int i = pos; i < novoTam - 1; i++) {
+                V[i] = V[i + 1];
+            }
+            novoTam--;
+            pos = buscaBinaria(V, x, novoTam);
         }
-        for(int i = pos; i< tam-1;i++){
-            V[i] = V[i+1];
+        return novoTam;
         }
-        return tam-1;
-    }
+
+        //conferindo cada numero do vetor e retornando un vetor sem o numero
+        // e trocando o valor por 0
+        public static int remover2 (int[]V,int tam, int x){
+            int [] G = new int[tam];
+            int cont = 0;
+
+            for(int i=0; i<tam; i++){
+                if(V[i]!= x){
+                    G[i] = V[i];
+                }else{
+                    cont++;
+                }
+            }
+            for(int i=0; i<tam; i++){
+                System.out.print(G[i]);
+            }
+            System.out.print("o numero "+ x +" apareceu "+cont);
+            return cont;
+        }
 
 
-    // passar por cada um dentro do array e retirar o valor dele
-    public static void remover2(int[]V, int X){
-
-    }
 
 }
