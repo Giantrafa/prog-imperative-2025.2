@@ -147,26 +147,54 @@ public class exemplosEmGeral {
         return novoTam;
         }
 
-        //conferindo cada numero do vetor e retornando un vetor sem o numero
-        // e trocando o valor por 0
+        //conferindo cada numero do vetor e retornando un vetor sem o numero e trocando o valor por 0
+        // conferi novamente
         public static int remover2 (int[]V,int tam, int x){
             int [] G = new int[tam];
             int cont = 0;
 
             for(int i=0; i<tam; i++){
                 if(V[i]!= x){
-                    G[i] = V[i];
-                }else{
+                    G[cont] = V[i];
                     cont++;
                 }
             }
+
             for(int i=0; i<tam; i++){
                 System.out.print(G[i]);
             }
-            System.out.print("o numero "+ x +" apareceu "+cont);
-            return cont;
+            System.out.print("o numero "+ x +" apareceu "+(tam -cont));
+            return tam - cont;
+        }
+        
+        //versao marcio
+        public static int remover3 (int[]V,int tam, int x){
+            int desl =0;
+            for(int i=0; i<tam; i++){
+                if(V[i]==x){
+                    desl+=1;
+                }else{
+                    V[i-desl] = V[i];
+                }
+            }
+            return tam - desl;
         }
 
-
+        //Selection Sort ou Seleçao 
+        public static void selectinSort(int[]V, int tam){
+            for(int i = 0; i<=tam-2; i++){
+                int posMenor = i;
+                for(int J = i+1; J<tam; J++){
+                    if(V[J]< V[posMenor]){
+                        posMenor = J;
+                    }
+                }
+                if(i!=posMenor){
+                    int aux = V[i];
+                    V[i] = V[posMenor];
+                    V[posMenor] = aux;
+                }
+            }
+        }
 
 }
