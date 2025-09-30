@@ -131,70 +131,61 @@ public class exemplosEmGeral {
             System.out.println(V[V.length-1]+" | "+QTD);
         }
 
-        // usa buscaBinaria no vetor para retirar o numero, e preenche com o ultimo numero do vetor
-        // so funciona caso o vetor esteja ordenado por conta do buscaBinaria
+        // Remove todas as ocorrências de um número x em um vetor ordenado
+        // Utiliza busca binária para encontrar x e substitui por elementos posteriores
+        // Após cada remoção, o vetor é atualizado e a busca recomeça
         public static int removerTodos(int[] V, int tam, int x) {
-        int novoTam = tam;
-        int pos = buscaBinaria(V, x, novoTam);
+            int novoTam = tam;
+            int pos = buscaBinaria(V, x, novoTam); // Busca posição de x no vetor ordenado
 
-        while (pos != -1) {
-            for (int i = pos; i < novoTam - 1; i++) {
-                V[i] = V[i + 1];
-            }
-            novoTam--;
-            pos = buscaBinaria(V, x, novoTam);
-        }
-        return novoTam;
-        }
-
-        //conferindo cada numero do vetor e retornando un vetor sem o numero e trocando o valor por 0
-        // conferi novamente
-        public static int remover2 (int[]V,int tam, int x){
-            int [] G = new int[tam];
-            int cont = 0;
-
-            for(int i=0; i<tam; i++){
-                if(V[i]!= x){
-                    G[cont] = V[i];
-                    cont++;
+            while (pos != -1) { 
+                for (int i = pos; i < novoTam - 1; i++) {// Desloca os elementos à direita de x uma posição para a esquerda
+                    V[i] = V[i + 1];
                 }
+                novoTam--; // Reduz o tamanho lógico do vetor
+                pos = buscaBinaria(V, x, novoTam); // Procura por outra ocorrência
             }
-
-            for(int i=0; i<tam; i++){
-                System.out.print(G[i]);
-            }
-            System.out.print("o numero "+ x +" apareceu "+(tam -cont));
-            return tam - cont;
+            return novoTam; // Retorna novo tamanho lógico do vetor sem o x
         }
-        
+
+
+            
         //versao marcio
-        public static int remover3 (int[]V,int tam, int x){
-            int desl =0;
-            for(int i=0; i<tam; i++){
-                if(V[i]==x){
-                    desl+=1;
-                }else{
-                    V[i-desl] = V[i];
+        // Remove todas as ocorrências de x sem necessidade de ordenação
+        // Mais eficiente que a anterior, pois percorre o vetor apenas uma vez
+        public static int remover2(int[] V, int tam, int x) {
+            int desl = 0; // Contador de quantos elementos foram "pulados" (removidos)
+        
+            for (int i = 0; i < tam; i++) {
+                if (V[i] == x) {
+                    desl++; // Elemento a ser removido
+                } else {
+                    V[i - desl] = V[i]; // Move o elemento para a esquerda, se necessário
                 }
             }
-            return tam - desl;
+            return tam - desl; // Novo tamanho do vetor
         }
 
-        //Selection Sort ou Seleçao 
-        public static void selectinSort(int[]V, int tam){
-            for(int i = 0; i<=tam-2; i++){
-                int posMenor = i;
-                for(int J = i+1; J<tam; J++){
-                    if(V[J]< V[posMenor]){
-                        posMenor = J;
+
+        // Ordena o vetor usando o algoritmo de seleção (Selection Sort)
+        public static void selectionSort(int[] V, int tam) {
+            for (int i = 0; i <= tam - 2; i++) {
+                int posMenor = i; // Assume que o menor é o atual
+
+                for (int j = i + 1; j < tam; j++) {
+                    if (V[j] < V[posMenor]) {
+                        posMenor = j; // Atualiza a posição do menor valor
                     }
                 }
-                if(i!=posMenor){
+                
+                // Troca os elementos de posição
+                if (i != posMenor) {                    
                     int aux = V[i];
                     V[i] = V[posMenor];
                     V[posMenor] = aux;
                 }
             }
         }
+
 
 }
