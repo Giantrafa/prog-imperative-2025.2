@@ -82,7 +82,7 @@ public class Exemplo07 {
     }        
 
     public static int preencher(int[]V, int tam){
-        if(tam> V.length){
+        if(tam > V.length){
             System.out.println("vetor cheio");
             return tam;
         }
