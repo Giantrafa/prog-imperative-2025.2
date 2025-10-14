@@ -100,4 +100,8 @@ public class Exemplo07 {
             M[i] = V[i] + N[i];
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/main
