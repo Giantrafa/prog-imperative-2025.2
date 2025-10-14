@@ -9,9 +9,7 @@ public class exemplosEmGeral {
         int[] vetor2 = new int[QTD];
         int[] vetor3 = new int[QTD];
 
-        int tam1 = 0;
-        //int tam2 = 0;
-        //int tam3 = 0;
+        int tam1 = 0;        
 
         int valor;
 
@@ -38,7 +36,7 @@ public class exemplosEmGeral {
             switch (valor) {
                 case 1:                                        
                     System.out.println("Digite o valor:");                    
-                        tam1 = receber(vetor1, tam1);                    
+                    tam1 = receber(vetor1, tam1);                    
                     break;
 
                 case 2:                                                                                
@@ -67,7 +65,7 @@ public class exemplosEmGeral {
                     break;
 
                 case 7:
-                    impares(vetor1, vetor2, vetor3,tam1);
+                    paresDeN_ImparesDeM(vetor1, vetor2, vetor3,tam1);
                     impressao(vetor3, vetor3.length);
                     break;
 
@@ -131,7 +129,7 @@ public class exemplosEmGeral {
         if(tam>=0){
             System.out.print(V[0]);
         }
-        for(int i =1; i<tam; i++){
+        for(int i = 1; i<tam; i++){
             System.out.print(", "+V[i]);            
         }
         System.out.print(" }");
@@ -149,7 +147,7 @@ public class exemplosEmGeral {
 
     // Inseri todos numeros dentro do vetor
     public static void receber2(int[]V){
-        for(int i=0; i<V.length;i++){
+        for(int i=0; i<V.length; i++){
              System.out.print("Digite o " + (i + 1) + "º valor: ");
             V[i]= input.nextInt();
         }            
@@ -170,7 +168,7 @@ public class exemplosEmGeral {
     }    
 
     //Filtra os numeros do vetor e adiciona eles a V, Os pares de N , E os inpares de M , No vetor V , onde tambem defino o tamanho
-    public static void impares(int[]N, int[]M, int[]V, int tam){
+    public static void paresDeN_ImparesDeM(int[]N, int[]M, int[]V, int tam){
         int index = 0;
 
         for(int i=0; i<tam; i++){
@@ -188,113 +186,113 @@ public class exemplosEmGeral {
         }                                        
     } 
 
-        //  Pego um valor e procuro dentro do vetor usando o meio q vai sempre dividir o array para achar ele ou nao 
-        // mas so funciona em Array ordenado
-        public static int buscaBinaria(int[]V, int x, int tam){
-            int busca = x;
+    //  Pego um valor e procuro dentro do vetor usando o meio q vai sempre dividir o array para achar ele ou nao 
+    // mas so funciona em Array ordenado
+    public static int buscaBinaria(int[]V, int x, int tam){
+        int busca = x;
 
-            int inicio = 0;
-            int fim = tam -1;
+        int inicio = 0;
+        int fim = tam -1;
             
-            while( inicio <= fim){
-                int meio = (inicio + fim)/2;
-                if(V[meio]== busca){
-                    return meio;
+        while( inicio <= fim){
+            int meio = (inicio + fim)/2;
+            if(V[meio]== busca){
+                return meio;
                 } else if(V[meio] < busca){
                     inicio = meio +1;
                 }else{
                     fim = meio -1;
                 }
-            }
-            return -1;
         }
+        return -1;
+    }
 
     // Ou Ordenação por Inserção
     // Pega os numeros do vetor e organiza eles na ordem cresente
-        public static void insertionSort(int []V, int tam){
-            for(int i=1; i<tam; i++){
-                int chave = V[i];
-                int J = i-1;
+    public static void insertionSort(int []V, int tam){
+        for(int i=1; i<tam; i++){
+            int chave = V[i];
+            int J = i-1;
 
-                while(J>=0 && chave<V[J]){
-                    V[J+1] = V[J];
-                    J--;
-                }
-                V[J+1] = chave;
+            while(J>=0 && chave<V[J]){
+                V[J+1] = V[J];
+                J--;
             }
+            V[J+1] = chave;
         }
+    }
     
-        // So funciona caso os numeros estejam organizados em ordem
-        public static void repetido(int[]V,int tam){
+    // So funciona caso os numeros estejam organizados em ordem
+    public static void repetido(int[]V,int tam){
 
-            insertionSort(V,tam);
+        insertionSort(V,tam);
 
-            int QTD = 1;
-            for(int i=1; i<tam; i++){
-                if(V[i]!=V[i-1]){
-                    System.out.println(V[i-1]+" | "+QTD);
-                    QTD = 1;
-                }else{
-                    QTD++;
-                }
+        int QTD = 1;
+        for(int i=1; i<tam; i++){
+            if(V[i]!=V[i-1]){
+                System.out.println(V[i-1]+" | "+QTD);
+                QTD = 1;
+            }else{
+                QTD++;
             }
-            System.out.println(V[V.length-1]+" | "+QTD);
         }
+        System.out.println(V[V.length-1]+" | "+QTD);
+    }
 
-        /* Remove todas as ocorrências de um número X em um vetor ordenado
-         Utiliza busca binária para encontrar x e substitui por elementos posteriores
-         Após cada remoção, o vetor é atualizado e a busca recomeça */
-        public static int removerTodos(int[] V, int tam, int x) {
-            int novoTam = tam;
-            int pos = buscaBinaria(V, x, novoTam); // Busca posição de x no vetor ordenado
+    /* Remove todas as ocorrências de um número X em um vetor ordenado
+    Utiliza busca binária para encontrar x e substitui por elementos posteriores
+    Após cada remoção, o vetor é atualizado e a busca recomeça */
+    public static int removerTodos(int[] V, int tam, int x) {
+        int novoTam = tam;
+        int pos = buscaBinaria(V, x, novoTam); // Busca posição de x no vetor ordenado
 
-            while (pos != -1) { 
-                for (int i = pos; i < novoTam - 1; i++) {// Desloca os elementos à direita de X uma posição para a esquerda
-                    V[i] = V[i + 1];
-                }
-                novoTam--; // Reduz o tamanho lógico do vetor
-                pos = buscaBinaria(V, x, novoTam); // Procura por outra ocorrência
+        while (pos != -1) { 
+            for (int i = pos; i < novoTam - 1; i++) {// Desloca os elementos à direita de X uma posição para a esquerda
+                V[i] = V[i + 1];
             }
-            return novoTam; // Retorna novo tamanho lógico do vetor sem o X
+            novoTam--; // Reduz o tamanho lógico do vetor
+            pos = buscaBinaria(V, x, novoTam); // Procura por outra ocorrência
         }
+        return novoTam; // Retorna novo tamanho lógico do vetor sem o X
+    }
 
             
-        //versao marcio
-        // Remove todas as ocorrências de X sem necessidade de ordenação
-        // Mais eficiente que a *removerTodos*, pois percorre o vetor apenas uma vez
-        public static int remover2(int[] V, int tam, int x) {
-            int desl = 0; // Contador de quantos elementos foram "pulados" (removidos)
+    /*versao marcio
+     Remove todas as ocorrências de X sem necessidade de ordenação
+    Mais eficiente que a *removerTodos*, pois percorre o vetor apenas uma vez*/
+    public static int remover2(int[] V, int tam, int x) {
+        int desl = 0; // Contador de quantos elementos foram "pulados" (removidos)
         
-            for (int i = 0; i < tam; i++) {
-                if (V[i] == x) {
-                    desl++; // Elemento a ser removido
-                } else {
-                    V[i - desl] = V[i]; // Move o elemento para a esquerda, se necessário
+        for (int i = 0; i < tam; i++) {
+            if (V[i] == x) {
+                desl++; // Elemento a ser removido
+            } else {
+                V[i - desl] = V[i]; // Move o elemento para a esquerda, se necessário
+            }
+        }
+        return tam - desl; // Novo tamanho do vetor
+    }
+
+
+    // Ordena o vetor usando o algoritmo de seleção que nem (Selection Sort) so q mais eficiente        
+    public static void Bullesort(int[] V, int tam) {
+        for (int i = 0; i <= tam - 2; i++) {
+            int posMenor = i; // Assume que o menor é o atual
+
+            for (int j = i + 1; j < tam; j++) {
+                if (V[j] < V[posMenor]) {
+                    posMenor = j; // Atualiza a posição do menor valor
                 }
             }
-            return tam - desl; // Novo tamanho do vetor
-        }
-
-
-        // Ordena o vetor usando o algoritmo de seleção que nem (Selection Sort) so q mais eficiente        
-        public static void Bullesort(int[] V, int tam) {
-            for (int i = 0; i <= tam - 2; i++) {
-                int posMenor = i; // Assume que o menor é o atual
-
-                for (int j = i + 1; j < tam; j++) {
-                    if (V[j] < V[posMenor]) {
-                        posMenor = j; // Atualiza a posição do menor valor
-                    }
-                }
                 
-                // Troca os elementos de posição
-                if (i != posMenor) {                    
-                    int aux = V[i];
-                    V[i] = V[posMenor];
-                    V[posMenor] = aux;
-                }
+            // Troca os elementos de posição
+            if (i != posMenor) {                    
+                int aux = V[i];
+                V[i] = V[posMenor];
+                V[posMenor] = aux;
             }
         }
+    }
 
 
 }
