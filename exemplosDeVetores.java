@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class exemplosEmGeral {
+public class exemplosDeVetores {
     
     public static Scanner input = new Scanner(System.in);
     public static final int QTD = 30;
@@ -31,7 +31,7 @@ public class exemplosEmGeral {
             System.out.println("13. Ordenar vetor1 (Selection Sort)");
             System.out.println(" 0. Sair");
 
-            valor = input.nextInt(); // Escolha
+            valor = input.nextInt(); 
 
             switch (valor) {
                 case 1:
