@@ -1,10 +1,15 @@
 import java.util.Scanner;
 
 public class ExemplosDeMatrizes {
-    public static Scanner input = new Scanner(System.in);
-    // QTD ?
+    public static Scanner input = new Scanner(System.in);    
     public static void main(String[] args) {
         int[][] matriz1 = new int[3][2];
+           /* 
+              0,1              
+            0{A,B} 
+            1{C,D}
+            2{E,F}
+          */
         int opcao;
 
         do {
@@ -12,7 +17,8 @@ public class ExemplosDeMatrizes {
             System.out.println("1 - Preencher matriz");
             System.out.println("2 - Buscar número na matriz");
             System.out.println("3 - Somar valores por linha");
-            System.out.println("4 - Sair");
+            System.out.println("4 - Imprimir");
+            System.out.println("5 - Sair");
             System.out.print("Escolha uma opção: ");
             opcao = input.nextInt();
 
@@ -29,13 +35,16 @@ public class ExemplosDeMatrizes {
                     soma(matriz1);
                     break;
                 case 4:
+                    imprimir(matriz1);
+                    break;
+                case 5:
                     System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
             }
 
-        } while (opcao != 4);
+        } while (opcao != 5);
     }
 
     
@@ -70,6 +79,17 @@ public class ExemplosDeMatrizes {
                     soma = soma + M[L][C];                
             }
             System.out.printf("Soma da linha %d: %d\n", L + 1, soma);
+        }        
+    }
+
+    //imprimir os numeros das linhas e colunas 
+    public static void imprimir(int[][] M) {           
+        for (int L = 0; L < M.length; L++) {
+            System.out.print("{ "+M[L][0]);             
+            for (int C = 1; C < M[L].length; C++) {
+                System.out.print(", "+M[L][C]);                
+            }
+            System.out.println(" }");             
         }        
     }
 
