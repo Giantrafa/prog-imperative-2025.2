@@ -1,6 +1,7 @@
+package ExemplosDeAssuntos;
 import java.util.Scanner;
 
-public class ExemplosDeMatrizes {
+public class Matrizes {
     public static Scanner input = new Scanner(System.in);
         public static void main(String[] args) {
             int[][] matriz1 = new int[3][2];

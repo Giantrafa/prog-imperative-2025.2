@@ -1,6 +1,7 @@
+package ExemplosDeAssuntos;
 import java.util.Scanner;
 
-public class exemplosDeVetores {
+public class Vetores {
     
     public static Scanner input = new Scanner(System.in);
     public static final int QTD = 30;
