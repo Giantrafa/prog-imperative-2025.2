@@ -1,7 +1,9 @@
 // ele esta dentro de 2 pastas , por isso que esta assim
 package ExemplosDeAssuntos.classes;
-// ele esta imortando os dados da classe na outra pasta
-import ExemplosDeAssuntos.classes.Aluno;
+
+// ele so presisa importa, caso o Aluno.java estivesse em outro lugar
+//import ExemplosDeAssuntos.classes.Aluno;
+
 import java.util.Scanner;
 
 public class Classe {

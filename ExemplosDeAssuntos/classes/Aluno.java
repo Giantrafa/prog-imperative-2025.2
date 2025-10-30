@@ -1,5 +1,5 @@
+//A classe
 package ExemplosDeAssuntos.classes; 
-//classe
 
 public class Aluno {
     String nome;
