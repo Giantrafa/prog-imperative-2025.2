@@ -9,6 +9,8 @@ public class Exmplo {
 
     System.out.println("Digite do Produto 1");
     receber(produto1); 
+
+    System.out.println("");
     System.out.println("Digite do Produto 2");
     receber(produto2);
 
@@ -17,6 +19,7 @@ public class Exmplo {
         
     
 }
+
     public static void receber (Produto al){
         System.out.println("Nome do Produto");
         al.titulo = input.nextLine();
@@ -26,8 +29,10 @@ public class Exmplo {
         al.precoUnitario = input.nextDouble();
         System.out.println("Quanto tem no Estoque");
         al.qtdEstoque = input.nextInt();
+        input.nextLine();
     }
+
     public static void mostrar(Produto al){
-        System.out.printf("O Produto %S, Que e %d, Custa %.1d, Tem %i no Estoque") al.titulo , al.descricao, al.precoUnitario, al.qtdEstoque;
+        System.out.printf("O Produto %s, Que e %s, Custa %.2f, Tem %d no Estoque.%n", al.titulo , al.descricao, al.precoUnitario, al.qtdEstoque);
     }
 }
