@@ -1,0 +1,22 @@
+nome: teclado logi inteligente
+descrissão: mouse ia
+categoria: mouse
+quantidade em estoque: 40
+quantidade minima: 5
+preço do produto: 700
+
+nome teclado razer: ia
+descrissão teclado: ia
+categoria teclado:
+quantidade em estoque: 50
+quantidade minima: 10
+preço do produto: 800
+
+
+
+nome: teclado reddragon smart fast
+descrissão: teclado ia
+categoria: teclado
+quantidade em estoque: 80
+quantidade: minima 10
+preço do produto: 600
